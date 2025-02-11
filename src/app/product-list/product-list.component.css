@@ -1,0 +1,84 @@
+.container {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+h2[mat-card-title] {
+  font-size: 24px; /* Adjust as needed */
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  margin-bottom: 1.5rem;
+  padding: 2.25rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+
+}
+
+
+button[mat-raised-button] {
+  width: 140px; /* 5 * 10 */
+  height: 50px; /* 10 * 10 */
+  color: #000;
+  background-color:lightskyblue ;
+  border-radius: 8px;
+  text-size-adjust: 10;
+}
+
+mat-table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-header-cell, mat-cell {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+mat-header-cell {
+  background-color: #343a40;
+  color: #fff;
+}
+
+mat-row:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.delete-button {
+  color: white;
+  background-color: rgb(220, 65, 65);
+  border: 1px solid darkred;
+  margin-right: 10px;
+}
+
+.edit-button {
+  color: white;
+  background-color: green;
+  border: 1px solid darkgreen;
+}

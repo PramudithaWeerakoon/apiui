@@ -1,0 +1,26 @@
+<div class="sign-up-container">
+  <form class="sign-up-form" (ngSubmit)="signUp()">
+    <h2>Welcome</h2>
+    <p>It only takes a few seconds to create your account</p>
+
+    <mat-form-field appearance="outline" style="height: 55px;">
+      <input matInput placeholder="Username*" [(ngModel)]="username" name="username" required style="text-align: left;">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="height: 55px;">
+      <input matInput placeholder="Email*" [(ngModel)]="email" name="email" type="email" required style="text-align: left;">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="height: 55px;">
+        <input matInput placeholder="Password*" [(ngModel)]="password" name="password" type="password" required style="text-align: left;">
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="termsAccepted" name="termsAccepted" required class="white-checkbox">
+        I have read and agree to the terms of service
+      </mat-checkbox>
+    <button mat-raised-button color="primary" type="submit" style="color: white;">Create Account</button>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <p class="login-link">Already have an account? <a routerLink="/sign-in">Login</a></p>
+  </form>
+</div>

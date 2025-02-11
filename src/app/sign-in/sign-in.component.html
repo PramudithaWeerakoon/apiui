@@ -1,0 +1,26 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>👋 Welcome Back!</h2>
+    <form (ngSubmit)="signIn()">
+      <mat-form-field appearance="outline" style="width: 300px; height: 70px;">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Enter your username" [(ngModel)]="username" name="username" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" style="width: 300px; height: 70px;">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter your password" [(ngModel)]="password" name="password" type="password" required>
+      </mat-form-field>
+      
+      <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe">.       Remember Me</mat-checkbox>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+
+    <p class="signup-text">Don’t have an account? 
+      <a (click)="navigateToSignUp()">Click here to create one</a>
+    </p>
+    
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+</div>
