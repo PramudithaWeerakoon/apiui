@@ -1,0 +1,75 @@
+
+<div class="sidenav">
+  <div class="logo">Admin Panel</div>
+  <div class="menu">
+    <div class="menu-item" routerLink="/products">Products Dashboard </div>
+    <div class="menu-item active" routerLink="/products-list">Products</div>
+    <div class="menu-item">Orders</div>
+    <div class="menu-item">Settings</div>
+  </div>
+</div>
+<div class="container">
+  <h2>Product List</h2>
+  <mat-table class="mat-elevation-z8" [dataSource]="products">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <mat-header-cell *matHeaderCellDef> Stock </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{product.stockQuantity}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <button class="btn btn-primary" [routerLink]="['/edit', product.id]">Edit</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<style>
+  .sidenav {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    background: #1a252f;
+    padding-top: 20px;
+  }
+
+  .container {
+    margin-left: 220px; /* Adjust this value based on the width of your sidenav */
+    padding: 20px;
+    
+  }
+
+  .menu-item {
+    padding: 10px;
+    cursor: pointer;
+    background: #1a252f;
+  }
+
+  .menu-item.active {
+    font-weight: bold;
+    background: #1a252f;
+  }
+
+  .menu-item:hover {
+    background: #1a252f;
+  }
+</style>

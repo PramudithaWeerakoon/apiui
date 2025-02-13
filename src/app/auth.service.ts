@@ -9,9 +9,12 @@ import { catchError, tap } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'https://localhost:7080/api/Users'; // Update this URL to match your back-end
   private loggedIn = false; // Add a property to track login status
+  private currentUser: any;
+
 
   constructor(private http: HttpClient) {
     this.loggedIn = !!localStorage.getItem('loggedIn'); // Check if user is logged in based on local storage
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
   // Sign-up method
@@ -46,6 +49,15 @@ export class AuthService {
       }),
       catchError(this.handleError<any>('signIn'))
     );
+  }
+
+  getCurrentUser(): any {
+    return this.currentUser;
+  }
+
+  setCurrentUser(user: any): void {
+    this.currentUser = user;
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   // Method to check if the user is logged in

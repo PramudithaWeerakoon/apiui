@@ -1,13 +1,19 @@
 <div class="container mt-4">
-  <button mat-icon-button class="back-button" (click)="goBack()">
+  <!-- Back Button -->
+  <button mat-icon-button class="back-button" (click)="goBack()" aria-label="Go back">
     <mat-icon>arrow_back</mat-icon>
   </button>
+
+  <!-- Form Title -->
   <h2>{{ isEdit ? 'Edit' : 'Add' }} Product</h2>
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+  <!-- Form -->
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" aria-labelledby="form-title">
+    <!-- Name Field -->
     <div class="form-row full-width">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name">
+        <input matInput type="text" formControlName="name" aria-label="Product Name" required>
         <mat-error *ngIf="productForm.get('name')?.hasError('required')">
           Name is required
         </mat-error>
@@ -17,10 +23,11 @@
       </mat-form-field>
     </div>
 
+    <!-- Price Field -->
     <div class="form-row full-width">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Price</mat-label>
-        <input matInput type="number" formControlName="price" step="0.01">
+        <input matInput type="number" formControlName="price" step="0.01" aria-label="Product Price" required>
         <mat-error *ngIf="productForm.get('price')?.hasError('required')">
           Price is required
         </mat-error>
@@ -30,20 +37,22 @@
       </mat-form-field>
     </div>
 
+    <!-- Description Field -->
     <div class="form-row full-width">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description"></textarea>
+        <textarea matInput formControlName="description" aria-label="Product Description"></textarea>
         <mat-error *ngIf="productForm.get('description')?.hasError('maxlength')">
           Description cannot be more than 500 characters
         </mat-error>
       </mat-form-field>
     </div>
 
+    <!-- Stock Quantity Field -->
     <div class="form-row full-width">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Stock Quantity</mat-label>
-        <input matInput type="number" formControlName="stockQuantity">
+        <input matInput type="number" formControlName="stockQuantity" aria-label="Stock Quantity" required>
         <mat-error *ngIf="productForm.get('stockQuantity')?.hasError('required')">
           Stock Quantity is required
         </mat-error>
@@ -53,22 +62,27 @@
       </mat-form-field>
     </div>
 
+    <!-- SKU Field -->
     <div class="form-row full-width">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>SKU</mat-label>
-        <input matInput type="text" formControlName="sku">
+        <input matInput type="text" formControlName="sku" aria-label="Product SKU">
         <mat-error *ngIf="productForm.get('sku')?.hasError('maxlength')">
           SKU cannot be more than 50 characters
         </mat-error>
       </mat-form-field>
     </div>
 
+    <!-- Active Checkbox -->
     <div class="form-row">
-      <mat-checkbox formControlName="isActive">Active</mat-checkbox>
+      <mat-checkbox formControlName="isActive" aria-label="Product Active Status">
+        Active
+      </mat-checkbox>
     </div>
 
+    <!-- Submit Button -->
     <div class="form-row">
-      <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">
+      <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid" aria-label="Submit Form">
         {{ isEdit ? 'Update' : 'Add' }} Product
       </button>
     </div>

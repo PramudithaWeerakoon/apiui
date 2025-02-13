@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product.model';
 
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -45,17 +46,21 @@ export class ProductFormComponent implements OnInit {
       this.productForm.patchValue(product);
     });
   }
+  
 
   onSubmit() {
     if (this.productForm.valid) {
-      const product = this.productForm.value;
+      const product: Product = {
+        ...this.productForm.value,
+        id: this.productId 
+      };
       if (this.isEdit) {
         this.productService.updateProduct(this.productId, product).subscribe(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/products']);
         });
       } else {
         this.productService.addProduct(product).subscribe(() => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/products']);
         });
       }
     }
