@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ProductListComponent1 } from './product-listui/product-listui.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -61,6 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     MatCardModule,
     MatMenuModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -71,5 +74,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Add CUSTOM_ELEMENTS_SCHEMA here
 })
 export class AppModule {}

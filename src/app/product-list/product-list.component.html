@@ -1,5 +1,5 @@
 <div class="topnav">
-  <button id="toggleSidebar" mat-icon-button>
+  <button id="toggleSidebar" mat-icon-button (click)="toggleSideNav()">
     <mat-icon>menu</mat-icon>
   </button>
   <div class="actions">
@@ -9,7 +9,7 @@
     <button mat-icon-button [matMenuTriggerFor]="languageMenu">
       <mat-icon>language</mat-icon>
     </button>
-    <mat-menu #languageMenu="matMenu">
+    <mat-menu #languageMenu="matMenu" yPosition="below">
       <button mat-menu-item (click)="changeLanguage('en')">English</button>
       <button mat-menu-item (click)="changeLanguage('es')">Spanish</button>
       <button mat-menu-item (click)="changeLanguage('fr')">French</button>
@@ -35,13 +35,6 @@
     <div class="menu-item">Settings</div>
   </div>
 </div>
-
-<script>
-  document.getElementById('toggleSidebar').addEventListener('click', function() {
-    document.querySelector('.sidenav').classList.toggle('hidden');
-    document.querySelector('.main-content').classList.toggle('full-width');
-  });
-</script>
 
 <!-- Main Content -->
 <div class="main-content" [class.dark-mode]="isDarkMode">
@@ -71,7 +64,7 @@
         <!-- Price Column -->
         <ng-container matColumnDef="price">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-          <td mat-cell *matCellDef="let product">{{ product.price | currency }}</td>
+          <td mat-cell *matCellDef="let product">{{ product.price | currency:'LKR ' }}</td>
         </ng-container>
 
         <!-- Stock Quantity Column -->
@@ -108,7 +101,6 @@
       
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
-
     <!-- Charts -->
     <div class="charts-container">
       <div id="productsChart" class="chart"></div>

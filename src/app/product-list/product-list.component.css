@@ -62,13 +62,7 @@ body {
   transition: opacity 0.3s;
 }
 
-#line1 {
-  left: 50px; 
-}
 
-#line2 {
-  left: 100px; 
-}
 
 .hidden {
   opacity: 0;
@@ -216,13 +210,7 @@ button[mat-raised-button][color="primary"]:hover {
   transition: opacity 0.3s;
 }
 
-#line1 {
-  left: 50px; /* Adjust as needed */
-}
 
-#line2 {
-  left: 100px; /* Adjust as needed */
-}
 
 .hidden {
   opacity: 0;
@@ -243,4 +231,7 @@ button[mat-raised-button][color="primary"]:hover {
   color: #ffffff;
 }
 
+.hidden {
+  display: none;
+}
 

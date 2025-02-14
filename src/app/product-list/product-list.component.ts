@@ -22,6 +22,8 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   waveChart: any;
   isSidebarHidden: boolean = false;
   isDarkMode = false;
+  isSideNavHidden = false;
+  isSideNavVisible: boolean = true;
   
   
 
@@ -38,6 +40,11 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   changeLanguage(language: string) {
     console.log(`Language changed to: ${language}`);
     this.translate.use(language);
+  }
+
+
+  toggleSideNav(): void {
+    this.isSideNavVisible = !this.isSideNavVisible;
   }
 
   ngOnInit(): void {
@@ -241,15 +248,14 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private preparePieChartData(products: any[]): { name: string, y: number }[] {
-    const activeCount = products.filter(product => product.isActive).length;
+    const activeCount = products.filter(product => product.isActive === 'Yes').length;
     const inactiveCount = products.length - activeCount;
-  
+
     return [
       { name: 'Active', y: activeCount },
       { name: 'Inactive', y: inactiveCount }
     ];
   }
-  
   
 }
 
