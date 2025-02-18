@@ -11,7 +11,6 @@ export class AuthService {
   private loggedIn = false; // Add a property to track login status
   private currentUser: any;
 
-
   constructor(private http: HttpClient) {
     this.loggedIn = !!localStorage.getItem('loggedIn'); // Check if user is logged in based on local storage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
@@ -28,6 +27,7 @@ export class AuthService {
         if (response && response.success) { // Check for 'success' property
           this.loggedIn = true; // Set loggedIn to true on successful sign-up
           localStorage.setItem('loggedIn', 'true'); // Store login status in local storage
+          this.setCurrentUser(response.user); // Store user information
         }
       }),
       catchError(this.handleError<any>('signUp'))
@@ -45,6 +45,7 @@ export class AuthService {
         if (response && response.success) { // Check for 'success' property
           this.loggedIn = true; // Set loggedIn to true on successful sign-in
           localStorage.setItem('loggedIn', 'true'); // Store login status in local storage
+          this.setCurrentUser(response.user); // Store user information
         }
       }),
       catchError(this.handleError<any>('signIn'))
@@ -71,6 +72,7 @@ export class AuthService {
     console.log('Logout called');
     this.loggedIn = false; // Set loggedIn to false on logout
     localStorage.removeItem('loggedIn'); // Clear login state from local storage
+    localStorage.removeItem('currentUser'); // Clear user information from local storage
     console.log('Logged out');
   }
 

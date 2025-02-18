@@ -1,26 +1,41 @@
 <div class="sign-up-container">
-  <form class="sign-up-form" (ngSubmit)="signUp()">
+  <div class="sign-up-image"></div>
+  
+  <div class="sign-up-card">
+    <div class="logo">We are Srom Products</div>
     <h2>Welcome</h2>
     <p>It only takes a few seconds to create your account</p>
 
-    <mat-form-field appearance="outline" style="height: 55px;">
-      <input matInput placeholder="Username*" [(ngModel)]="username" name="username" required style="text-align: left;">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" style="height: 55px;">
-      <input matInput placeholder="Email*" [(ngModel)]="email" name="email" type="email" required style="text-align: left;">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" style="height: 55px;">
-        <input matInput placeholder="Password*" [(ngModel)]="password" name="password" type="password" required style="text-align: left;">
+    <form (ngSubmit)="signUp()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Enter your username" [(ngModel)]="username" name="username" required>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter your email" [(ngModel)]="email" name="email" type="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter your password" [(ngModel)]="password" name="password" type="password" required>
+      </mat-form-field>
+
       <mat-checkbox [(ngModel)]="termsAccepted" name="termsAccepted" required class="white-checkbox">
         I have read and agree to the terms of service
       </mat-checkbox>
-    <button mat-raised-button color="primary" type="submit" style="color: white;">Create Account</button>
 
-    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button mat-raised-button class="sign-up-button" type="submit">Create Account</button>
 
-    <p class="login-link">Already have an account? <a routerLink="/sign-in">Login</a></p>
-  </form>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+      <p class="login-link">Already have an account? <a routerLink="/sign-in">Login</a></p>
+    </form>
+
+    <div class="terms">
+      By signing up, you agree to Srom's<br>
+      <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+    </div>
+  </div>
 </div>

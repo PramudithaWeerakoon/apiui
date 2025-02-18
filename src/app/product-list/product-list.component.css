@@ -16,11 +16,6 @@ body {
   transition: width 0.3s;
   transition: transform 0.3s ease;
   transform: translateX(0);
-  
-}
-
-.logo{
-  color: white;
 }
 
 .sidenav .logo {
@@ -37,39 +32,6 @@ body {
 
 .sidenav .menu {
   padding: 16px 0;
-}
-
-.main-content {
-  margin-left: 200px;
-  margin-top: 64px;
-  padding: 24px;
-  position: relative; /* Add this line */
-  transition: margin-left 0.3s;
-  transition: margin-left 0.3s ease;
-}
-
-.main-content.full-width {
-  margin-left: 0;
-}
-
-
-.vertical-line {
-  width: 2px;
-  height: 100%;
-  background-color: #2c3e50;
-  position: absolute;
-  top: 0;
-  transition: opacity 0.3s;
-}
-
-
-
-.hidden {
-  opacity: 0;
-}
-
-.main-content.full-width {
-  margin-left: 0;
 }
 
 .sidenav .menu-item {
@@ -136,12 +98,61 @@ body {
   font-size: 16px;
 }
 
-/* Product List Container */
-.product-list-container {
-  background: white;
+.search-bar {
+  background: #f5f6fa;
   border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 200px;
+  margin-top: 64px;
   padding: 24px;
+  position: relative;
+  transition: margin-left 0.3s;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.full-width {
+  margin-left: 0;
+}
+
+/* Metrics Container */
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 8px 0;
+}
+
+.metric-subtext {
+  color: #6c757d;
+  font-size: 12px;
 }
 
 /* Table Styling */
@@ -149,7 +160,7 @@ mat-table {
   width: 100%;
   margin-bottom: 1.5rem;
   background-color: #fff;
-  border-radius: 80px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
 }
@@ -166,32 +177,37 @@ mat-cell {
   font-size: 14px;
 }
 
-/* Buttons */
-button[mat-raised-button] {
-  padding: 8px 24px;
-  border-radius: 6px;
+
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button[mat-raised-button][color="primary"] {
-  background: #4361ee;
-  color: white;
+.received {
+  background: #e8f5e9;
+  color: #43a047;
 }
 
-button[mat-raised-button][color="primary"]:hover {
-  background: #3b52d4;
-  transform: translateY(-1px);
+.pending {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.canceled {
+  background: #ffebee;
+  color: #e53935;
 }
 
 /* Charts */
 .charts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .chart {
@@ -201,37 +217,49 @@ button[mat-raised-button][color="primary"]:hover {
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04);
 }
 
-.vertical-line {
-  width: 2px;
-  height: 100%;
-  background-color: #2c3e50;
-  position: absolute;
-  top: 0;
-  transition: opacity 0.3s;
-}
-
-
-
-.hidden {
-  opacity: 0;
-}
-
-.button1{
-  background-color: #43ee9b;
-  color: white;
-}
-
-.button2{
-  background-color: #e82546;
-  color: white;
-}
-
+/* Dark Mode */
 .dark-mode {
   background-color: #121212;
   color: #ffffff;
 }
 
-.hidden {
-  display: none;
+.dark-mode .metric-card,
+.dark-mode .chart,
+.dark-mode mat-table {
+  background-color: #1e1e1e;
+  color: #ffffff;
 }
 
+.dark-mode mat-header-cell {
+  background-color: #2c3e50;
+  color: #ffffff;
+}
+
+.dark-mode mat-cell {
+  color: #bdc3c7;
+}
+
+.profile {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  display: block;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 30px;
+}
+
+.dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}

@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -24,6 +25,9 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   isDarkMode = false;
   isSideNavHidden = false;
   isSideNavVisible: boolean = true;
+  currentUserName: string = '';
+  user: any;
+  showDropdown = false;
   
   
 
@@ -34,7 +38,8 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
     private productService: ProductService,
     private authService: AuthService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    
   ) { }
 
   changeLanguage(language: string) {
@@ -43,14 +48,27 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
+  
+
+
   toggleSideNav(): void {
     this.isSideNavVisible = !this.isSideNavVisible;
   }
 
   ngOnInit(): void {
     this.loadProducts();
-    const pieChartData = this.preparePieChartData(this.products);
-    this.initializePieChart(pieChartData);
+    const currentUser = this.authService.getCurrentUser();
+    this.currentUserName = currentUser ? currentUser.name : '';
+    this.fetchUserDetails();
+  }
+
+  fetchUserDetails(): void {
+    this.user = this.authService.getCurrentUser();
+    if (this.user) {
+      console.log('User details fetched successfully:', this.user);
+    } else {
+      console.error('Error fetching user details: User not logged in');
+    }
   }
 
   toggleDarkMode() {
@@ -222,40 +240,6 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.router.navigate(['/login']);
   }
 
-  private initializePieChart(data: { name: string, y: number }[]) {
-    if (data.length === 0) {
-      console.warn('No data available to display in the pie chart.');
-      return;
-    }
-  
-    Highcharts.chart('pieChart', {
-      chart: {
-        type: 'pie',
-        backgroundColor: '#f8f9fa'
-      },
-      title: {
-        text: 'Product Active Status'
-      },
-      series: [{
-        type: 'pie',  // Ensuring the type is correctly set
-        name: 'Products',
-        data: data.map(item => ({ name: item.name, y: item.y, color: item.y > 0 ? '#28a745' : '#dc3545' })), // Adding color for better visualization
-        allowPointSelect: true, // Allow selection
-        cursor: 'pointer',
-        showInLegend: true
-      }]
-    });
-  }
 
-  private preparePieChartData(products: any[]): { name: string, y: number }[] {
-    const activeCount = products.filter(product => product.isActive === 'Yes').length;
-    const inactiveCount = products.length - activeCount;
-
-    return [
-      { name: 'Active', y: activeCount },
-      { name: 'Inactive', y: inactiveCount }
-    ];
-  }
-  
 }
 

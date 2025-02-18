@@ -27,6 +27,7 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { ProductListComponent1 } from './product-listui/product-listui.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ProductFormDialogComponent } from './product-form-dialog/product-form-dialog.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignUpComponent,
     ProfileDetailsComponent,
     ProductListComponent1,
+    ProductFormDialogComponent,
   ],
   imports: [
     BrowserModule,
