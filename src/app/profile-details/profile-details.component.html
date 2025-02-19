@@ -1,9 +1,44 @@
-<div *ngIf="user">
-  <h2>User Profile</h2>
-  <p><strong>Name:</strong> {{ user.name }}</p>
-  <p><strong>Username:</strong> {{ user.username }}</p>
-  <!-- Add more fields as needed -->
+<div *ngIf="user" class="profile-container">
+  <h2>Profile Details</h2>
+  <div class="profile-content">
+    <div class="photo-section">
+      <div class="avatar">
+        <!-- Add image here if available -->
+      </div>
+      <button class="update-photo">Update</button>
+      <a class="delete-photo">Delete</a>
+    </div>
+
+    <div class="form-section">
+      <form>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" [value]="user.username">
+        </div>
+
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" [value]="user.name">
+        </div>
+
+        <div class="form-group">
+          <label>Website</label>
+          <input type="url" placeholder="https://example.com">
+        </div>
+
+        <div class="form-group">
+          <label>Your Bio</label>
+          <textarea placeholder="Add a short bio..."></textarea>
+        </div>
+
+        
+        <button type="submit" routerLink="/products" class="back-button">Back</button>
+        <button type="submit" routerLink="/products" class="save-button">Save</button>
+      </form>
+    </div>
+  </div>
 </div>
+
 <div *ngIf="!user">
   <p>User not logged in.</p>
 </div>

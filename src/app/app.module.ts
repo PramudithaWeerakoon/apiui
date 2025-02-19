@@ -28,6 +28,7 @@ import { ProductListComponent1 } from './product-listui/product-listui.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ProductFormDialogComponent } from './product-form-dialog/product-form-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProfileDetailsComponent,
     ProductListComponent1,
     ProductFormDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -18,4 +18,10 @@ export class ProductListComponent1 implements OnInit {
       this.products = data;
     });
   }
+
+  deleteProduct(productId: number): void {
+    this.productService.deleteProduct(productId).subscribe(() => {
+      this.products = this.products.filter(product => product.id !== productId);
+    });
+  }
 }

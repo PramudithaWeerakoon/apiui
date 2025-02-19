@@ -1,0 +1,136 @@
+/* profile-details.component.css */
+:host {
+    display: block;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-size: 24px;
+    margin-left: -38px;
+  }
+  
+  .profile-content {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  .photo-section {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    margin-left: -38px;
+  }
+  
+  .update-photo {
+    margin-top: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: -130px;
+  }
+  
+  .update-photo:hover {
+    background: #0056b3;
+  }
+  
+.delete-photo {
+    display: block;
+    color: #ff4444;
+    text-decoration: none;
+    margin-top: 1rem;
+    margin-left: -130px; 
+    font-size: 14px;
+}
+  
+  .delete-photo:hover {
+    text-decoration: underline;
+  }
+  
+  .form-section {
+    flex-grow: 1;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+  }
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .save-button {
+    background: #007bff;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 10px;
+  }
+  
+  .save-button:hover {
+    background: #0056b3;
+  }
+
+  .back-button {
+    background: #e34d4d;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-content {
+      flex-direction: column;
+    }
+    
+    .photo-section {
+      width: 100%;
+    }
+  }

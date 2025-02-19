@@ -216,6 +216,11 @@ button[mat-raised-button][color="primary"]:hover {
   background: #3b52d4;
   transform: translateY(-1px);
 }
+.btn-danger {
+  background: #f16257;
+  color: white;
+  margin-left: 10px;
+}
 
 /* Charts */
 .charts-container {

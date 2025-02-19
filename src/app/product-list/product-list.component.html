@@ -68,14 +68,13 @@
   </div>
 
   <div class="product-list-container">
-    <div class="toolbar">
-      <button mat-raised-button color="primary" routerLink="/add">
-        <mat-icon>add</mat-icon>
-        Add Product
-      </button>
-    </div>
-
-    
+    <!-- product-list.component.html -->
+<div class="toolbar">
+  <button mat-raised-button color="primary" (click)="openAddProductDialog()">
+    <mat-icon>add</mat-icon>
+    Add Product
+  </button>
+</div>
 
     <div class="charts-container">
       <div id="productsChart" class="chart"></div>

@@ -8,6 +8,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductFormDialogComponent } from '../product-form-dialog/product-form-dialog.component';
 
 
 @Component({
@@ -30,6 +32,7 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
   showDropdown = false;
   
   
+  
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -39,6 +42,7 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
     private authService: AuthService,
     private router: Router,
     private translate: TranslateService,
+    private dialog: MatDialog
     
   ) { }
 
@@ -47,7 +51,22 @@ export class ProductListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.translate.use(language);
   }
 
+  openAddProductDialog(): void {
+    const dialogRef = this.dialog.open(ProductFormDialogComponent, {
+      width: '550px', // Set the width of the dialog
+      height: '800px', // Set the height of the dialog
+      disableClose: true, // Prevent closing the dialog by clicking outside
+      autoFocus: true, // Automatically focus on the first form field
+      panelClass: 'custom-dialog-container', // Add custom class for additional styling
+      position: { left: '500px', top: '-700px' } // Set the left and top alignment
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadProducts();
+      }
+    });
+  }
   
 
 

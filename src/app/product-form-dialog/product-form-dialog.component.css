@@ -1,0 +1,151 @@
+/* styles.css or styles.scss */
+/* Global Form Container */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+}
+  
+  /* Back Button */
+  .back-button {
+    color: #4361ee;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .back-button:hover {
+    background: rgba(67, 97, 238, 0.1);
+    transform: translateX(-3px);
+  }
+  
+  .back-button:focus {
+    outline: 2px solid #4361ee;
+    outline-offset: 2px;
+  }
+  
+  /* Form Title */
+  h2 {
+    color: #2c3e50;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: left;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 1rem;
+  }
+  
+  /* Form Rows */
+  .form-row {
+    margin-bottom: 1.75rem;
+  }
+  
+  /* Form Fields */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-form-field .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  
+  mat-form-field .mat-form-field-outline {
+    background-color: #f8f9fe;
+    border-radius: 8px;
+  }
+  
+  mat-form-field .mat-form-field-outline-start,
+  mat-form-field .mat-form-field-outline-gap,
+  mat-form-field .mat-form-field-outline-end {
+    border-width: 1px !important;
+  }
+  
+  mat-form-field.mat-focused .mat-form-field-outline {
+    background-color: #fff;
+  }
+  
+  mat-label {
+    color: #6c757d !important;
+    font-weight: 500;
+  }
+  
+  mat-input-element {
+    color: #2c3e50 !important;
+    font-weight: 500;
+  }
+  
+  mat-error {
+    font-size: 0.85rem;
+    color: #dc3545 !important;
+    margin-top: 0.5rem;
+  }
+  
+  /* Checkbox Styling */
+  mat-checkbox {
+    color: #2c3e50;
+  }
+  
+  mat-checkbox .mat-checkbox-frame {
+    border-color: #6c757d;
+  }
+  
+  mat-checkbox.mat-checkbox-checked .mat-checkbox-background {
+    background-color: #4361ee;
+  }
+  
+  /* Submit Button */
+  button[mat-raised-button] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: #4361ee;
+    color: white !important;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[mat-raised-button]:hover {
+    background: #3b52d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.25);
+  }
+  
+  button[mat-raised-button]:focus {
+    outline: 2px solid #4361ee;
+    outline-offset: 2px;
+  }
+  
+  button[mat-raised-button]:disabled {
+    background: #e9ecef;
+    color: #6c757d !important;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
